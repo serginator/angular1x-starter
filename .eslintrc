@@ -1,0 +1,123 @@
+{
+    "env": {
+        "browser": true,
+        "jasmine": true,
+        "es6": true
+    },
+
+    "extends": "google",
+
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module"
+    },
+
+    "plugins": [
+        "html"
+    ],
+
+    "rules": {
+        "no-undef": 2,
+        "keyword-spacing": 2,
+        "no-multi-spaces": 2,
+        "space-infix-ops": 2,
+        "no-multiple-empty-lines": [2, { "max": 1, "maxBOF": 0}],
+        "comma-dangle": 2, // Sonar javascript:TrailingComma
+        "complexity": [2, 10], // Sonar javascript:FunctionComplexity
+        "curly": 2, // Sonar javascript:CurlyBraces
+        "default-case": 2, // Sonar javascript:SwitchWithoutDefault
+        "eqeqeq": 2, // Sonar javascript:EqEqEq
+        "eol-last": 2, // Sonar javascript:MissingNewlineAtEndOfFile
+        "guard-for-in": 2, // Sonar javascript:ForIn
+        "indent": [2, 2, {"SwitchCase": 1}], // Sonar javascript:TabCharacter
+        "max-depth": [2, 3], // Sonar javascript:NestedIfDepth
+        "max-len": [2, 120], // Sonar javascript:LineLength
+        "max-params": [2, 7], // Sonar javascript:ExcessiveParameterList
+        "new-cap": 0,
+        "no-bitwise": 0, // Sonar javascript:BitwiseOperators (it will fail if we enable it)
+        "no-debugger": 2, // Sonar javascript:DebuggerStatement
+        "no-dupe-args": 2, // Sonar javascript:DuplicateFunctionArgument
+        "no-dupe-keys": 2, // Sonar javascript:DuplicatePropertyName
+        "no-else-return": 2, // Sonar javascript:S1126
+        "no-empty": 2, // Sonar javascript:EmptyBlock
+        "no-eval": 2, // Sonar javascript:Eval
+        //no-implied-eval?
+        "no-implicit-coercion": 0,
+        "no-inline-comments": 0, // Sonar javascript:TrailingComment (it will fail because of commented parameters in functions)
+        "no-loop-func": 2, // Sonar javascript:FunctionDefinitionInsideLoop
+        "no-multi-str": 2, // Sonar javascript:MultilineStringLiterals
+        "no-negated-condition": 0,
+        "no-new-wrappers": 2, // Sonar javascript:PrimitiveWrappers
+        "no-octal": 2, // Sonar javascript:OctalNumber
+        "no-redeclare": 2, // Sonar javascript:RedeclaredFunction
+        "no-shadow": 2, // Sonar javascript:VariableShadowing
+        "no-shadow-restricted-names": 2, // Sonar javascript:BoundOrAssignedEvalOrArguments javascript:ArrayAndObjectConstructors
+        "no-throw-literal": 0,
+        "no-trailing-spaces": 2, // Sonar javascript:TrailingWhitespace
+        "no-unexpected-multiline": 2,
+        "no-unreachable": 2, // Sonar javascript:UnreachableCode
+        "no-use-before-define": 2, // Sonar javascript:VariableDeclarationAfterUsage
+        "no-unused-expressions": 0, // to avoid problems with DEBUG &&...
+        "no-unused-vars": 2, // Sonar javascript:UnusedVariable
+        "no-warning-comments": 0, // to allow TODO comments
+        "no-with": 2, // Sonar javascript:WithStatement
+        "one-var": 0,
+        "radix": 2,
+        "quotes": [2, "single", "avoid-escape"], // Sonar javascript:SingleQuote
+        "quote-props": [2, "consistent-as-needed"],
+        "semi": 2, // Sonar javascript:Semicolon
+        "spaced-comment": 0, // to avoid problems with commented parameters
+        "valid-jsdoc": [2, {
+            "requireParamDescription": false,
+            "requireReturn": false,
+            "requireReturnDescription": false
+        }],
+        "require-jsdoc": [2, {
+            "require": {
+                "FunctionDeclaration": false,
+                "MethodDefinition": false,
+                "ClassDeclaration": true,
+                "ArrowFunctionExpression": false
+            }
+        }],
+        "wrap-iife": 0, // Disabled as barely all our files make this rule fail
+        "no-fallthrough": 2,
+        "no-restricted-globals": [2, "event", "fdescribe", "Promise", "status"],
+
+        // ES6 specific ones
+        "arrow-spacing": "error",
+        "no-class-assign": "error",
+        "no-const-assign": "error",
+        "no-dupe-class-members": "error",
+        "no-duplicate-imports": "error",
+        "require-yield": "error"
+
+        /**
+         * Sonar rules that doesn't have eslint rules:
+         *
+         * Literal boolean values should not be used in condition expressions
+         * "if" statement conditions should not unconditionally evaluate to "true" or to "false"
+         * "switch" statements should not contain non-case labels
+         * Collapsible "if" statements should be merged
+         * Do not use more that one statement per line
+         * Function declarations should not be made within blocks
+         * Assignments should not be made from within sub-expressions
+         * Only "while", "do" and "for" statements should be labelled
+         * Loops should not contain more than a single "break" or "continue" statement
+         * HTML-style comments should not be used
+         * Unused function parameters should be removed (unused in jshint)
+         * "future reserved words" should not be used as identifiers (futurehostile in jshint)
+         * An unconditional "break" statement shall terminate every non-empty switch-clause
+         * Constructor functions should not be called purely for side-effects
+         * Sections of code should not be "commented out"
+         * The same name should not be used to declaration both a function and a variable in the same scope
+         */
+    },
+    "globals": {
+        "DEBUG": true,
+        "process": true,
+        "require": true,
+        "__dirname": true,
+        "module": true,
+    }
+}

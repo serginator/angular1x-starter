@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "paths": {
+      "app/*": ["./src/app/*"],
+      "angular": ["./node_modules/angular/angular.min.js"]
+    }
+  },
+  "exclude": [
+    "**/node_modules/**",
+    "**/webpack_cache/**",
+    "**/dist/**"
+  ]
+}
