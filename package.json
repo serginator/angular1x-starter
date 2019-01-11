@@ -8,13 +8,14 @@
     "dev": "webpack-dev-server --open --hot --mode development",
     "build": "webpack --progress --hide-modules --mode production",
     "server": "pushd dist; python -m SimpleHTTPServer 8000",
-    "lint": "eslint \"src/**/*.js\" && stylelint \"src/**/*.less\"",
+    "lint": "eslint \"src/**/*.js\" && stylelint \"src/**/*.less\" && npm run lint-md",
     "test": "jest --config jest.config.json",
     "ci-lint": "eslint \"src/**/*.js\" -o ./reports/eslint.xml -f jslint-xml && stylelint \"src/**/*.less\"",
     "ci-test": "jest --config jest.config.json",
     "ci": "npm run clean && npm run ci-lint && npm run ci-test",
     "clean": "rm -rf reports",
-    "fix-npm": "npm cache clean -f && rm -rf node_modules && npm install --no-save"
+    "fix-npm": "npm cache clean -f && rm -rf node_modules && npm install --no-save",
+    "lint-md": "remark ."
   },
   "pre-commit": [
     "lint"
@@ -24,6 +25,11 @@
     "output": "./reports/junit.xml",
     "classNameTemplate": "{classname}",
     "titleTemplate": "{title}"
+  },
+  "remarkConfig": {
+    "plugins": [
+      "remark-preset-lint-recommended"
+    ]
   },
   "devDependencies": {
     "autoprefixer": "^9.4.4",
@@ -65,9 +71,19 @@
   },
   "dependencies": {
     "angular": "^1.7.5",
-    "bootstrap-css-only": "^4.2.1"
+    "bootstrap-css-only": "^4.2.1",
+    "remark-cli": "^6.0.1",
+    "remark-preset-lint-recommended": "^3.0.2"
   },
-  "keywords": ["angular.js", "webpack", "es6", "babel", "starter", "less", "jest"],
+  "keywords": [
+    "angular.js",
+    "webpack",
+    "es6",
+    "babel",
+    "starter",
+    "less",
+    "jest"
+  ],
   "private": true,
   "author": "Sergio Ruiz <sergio.ruiz@aurigae.com>",
   "license": "ISC"
