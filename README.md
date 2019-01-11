@@ -1,5 +1,6 @@
 Angular 1.x starter
 =================
+[![Build Status](https://travis-ci.org/serginator/angular1x-starter.svg?branch=master)](https://travis-ci.org/serginator/angular1x-starter)
 
 Base project to work with Angular.js
 
@@ -12,7 +13,6 @@ Base project to work with Angular.js
 * Linters (ESLint, stylelint)
 
 ## Scripts
-
 * `npm start` install dependencies and runs webpack-dev-server
 * `npm run dev` runs webpack-dev-server
 * `npm run build` generates a build in `dist/` folder
